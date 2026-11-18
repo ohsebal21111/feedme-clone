@@ -32,7 +32,7 @@ const EXAMPLES = [
 ];
 const EXAMPLE_URL = EXAMPLES[0].url;
 
-export function Converter() {
+export function Converter({ account }: { account?: React.ReactNode }) {
   const [url, setUrl] = useState("");
   const [view, setView] = useState<View>({ kind: "home" });
   const [inputError, setInputError] = useState(false);
@@ -97,7 +97,10 @@ export function Converter() {
           </span>
           feedme
         </div>
-        <ThemeToggle />
+        <div className="flex items-center gap-1">
+          {account}
+          <ThemeToggle />
+        </div>
       </header>
 
       <main
